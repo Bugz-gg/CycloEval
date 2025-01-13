@@ -85,7 +85,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'your-azure-app-name'
+          app-name:  'cycloeval'
           slot-name: 'Production'
           package: ./deployment
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9E3CD55F706E40649CB649AD613C0B94 }}
