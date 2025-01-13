@@ -14,21 +14,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout the code
       - uses: actions/checkout@v4
 
+      # Step 2: Set up Node.js
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
 
-      - name: npm install, build, and test
+      # Step 3: Install dependencies, build the app
+      - name: Install dependencies and build
         run: |
           cd client
           npm install
+          npm run build
 
+      # Step 4: Zip the build output
       - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
+        run: |
+          cd client/dist
+          zip -r ../../release.zip .
 
+      # Step 5: Upload the build artifact for the deployment job
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
@@ -41,21 +49,24 @@ jobs:
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    
+
     steps:
+      # Step 6: Download the build artifact
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
           name: node-app
 
+      # Step 7: Unzip the build artifact
       - name: Unzip artifact for deployment
-        run: unzip release.zip
-      
+        run: unzip release.zip -d output
+
+      # Step 8: Deploy to Azure Web App
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'cycloeval'
+          app-name: 'cycloeval' # Replace with your Azure Web App name
           slot-name: 'Production'
-          package: .
+          package: ./output
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9E3CD55F706E40649CB649AD613C0B94 }}
