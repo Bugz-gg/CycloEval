@@ -68,5 +68,5 @@ jobs:
         with:
           app-name: 'cycloeval' # Replace with your Azure Web App name
           slot-name: 'Production'
-          package: ./dist # Correctly reference the build output folder
+          package: ./output/client/dist # Correctly reference the build output folder
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9E3CD55F706E40649CB649AD613C0B94 }}
