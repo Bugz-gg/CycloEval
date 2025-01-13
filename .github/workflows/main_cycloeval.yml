@@ -48,7 +48,7 @@ jobs:
           mkdir -p deployment/backend
           mkdir -p deployment/python
           cp -r server/* deployment/backend/
-          cp -r python/* deployment/python
+          cp -r python/* deployment/python/
 
       # Step 7: Zip the deployment package
       - name: Create Deployment Package
