@@ -20,4 +20,4 @@ app.include_router(api_router)
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="${{ secrets.IP }}", port=8000)
+    uvicorn.run(app, host="20.105.232.27", port=8000)
