@@ -20,4 +20,4 @@ app.include_router(api_router)
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="20.105.232.27", port=80)
+    uvicorn.run(app, host="cycloeval-fhd5gsg3g7bxdgaj.westeurope-01.azurewebsites.net7", port=443)
