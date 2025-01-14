@@ -10,10 +10,10 @@ app = FastAPI()
 # Configuration des CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Permettre toutes les origines, à restreindre en production
+    allow_origins=["http://127.0.0.1:8000", "http://localhost:8000", "https://cycloeval-fhd5gsg3g7bxdgaj.westeurope-01.azurewebsites.net"],  # Ajoutez les origines autorisées ici
     allow_credentials=True,
-    allow_methods=["*"],  # Permettre toutes les méthodes HTTP
-    allow_headers=["*"],  # Permettre tous les headers
+    allow_methods=["*"],  # Autorisez toutes les méthodes HTTP (GET, POST, etc.)
+    allow_headers=["*"],  # Autorisez tous les en-têtes
 )
 
 app.include_router(api_router)
