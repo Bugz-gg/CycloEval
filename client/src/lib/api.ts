@@ -14,7 +14,7 @@ export type filterType = 'allShocks' | 'userShocks' | 'userRoutes';
 
 export type apiRoute = 'importSensorData' | 'user/me' | filterType;
 
-export const api = 'http://localhost:80';
+export const api = process.env.REACT_APP_API_BASE_URL || 'http://localhost:80';
 
 // const getTokenFromLocal = () => {
 //   const token: Token = {
