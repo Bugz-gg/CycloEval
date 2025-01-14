@@ -14,7 +14,7 @@ export type filterType = 'allShocks' | 'userShocks' | 'userRoutes';
 
 export type apiRoute = 'importSensorData' | 'user/me' | filterType;
 
-export const api = 'https://cycloeval-fhd5gsg3g7bxdgaj.westeurope-01.azurewebsites.net:443';
+export const api = 'http://cycloeval-fhd5gsg3g7bxdgaj.westeurope-01.azurewebsites.net:80';
 
 // const getTokenFromLocal = () => {
 //   const token: Token = {
