@@ -40,8 +40,8 @@ jobs:
 
       - name: Package Backend
         run: |
-          mkdir -p deployment/backend
-          cp -r server/* deployment/backend/
+          mkdir -p deployment/server
+          cp -r server/* deployment/server/
 
       - name: Create Deployment Package
         run: |
