@@ -10,7 +10,12 @@ app = FastAPI()
 # Configuration des CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://cycloeval-fhd5gsg3g7bxdgaj.westeurope-01.azurewebsites.net"],  # Ajoutez les origines autorisées ici
+    allow_origins=[
+        "http://localhost",  # Development environment
+        "http://localhost:80",  # Specific port for local testing
+        "http://localhost:3000",  # React default dev server port
+        "https://cycloeval-fhd5gsg3g7bxdgaj.westeurope-01.azurewebsites.net",  # Production
+    ],
     allow_credentials=True,
     allow_methods=["*"],  # Autorisez toutes les méthodes HTTP (GET, POST, etc.)
     allow_headers=["*"],  # Autorisez tous les en-têtes
